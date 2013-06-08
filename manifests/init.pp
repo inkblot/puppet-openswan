@@ -11,6 +11,7 @@ class openswan (
 		owner   => 'root',
 		group   => 'root',
 		mode    => 0644,
+		require => Package['openswan'],
 	}
 
 	concat::fragment { 'ipsec config setup':
@@ -35,6 +36,7 @@ class openswan (
 		owner   => 'root',
 		group   => 'root',
 		mode    => 0600,
+		require => Package['openswan'],
 	}
 
 	concat::fragment { 'ipsec.secret preamble':
