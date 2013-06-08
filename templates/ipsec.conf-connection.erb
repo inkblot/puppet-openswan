@@ -1,0 +1,14 @@
+conn <%= @name %>
+	type=transport
+	left=<%= @server_ip %>
+	leftid=@<%= @server_ip %>
+	leftprotoport=17/1701
+	right=<%= @peer_ip %>
+	rightsubnet=vhost:%priv
+	rightprotoport=17/0
+	authby=secret
+	pfs=no
+	rekey=no
+	ikelifetime=8h
+	keylife=1h
+	auto=<%= @auto %>
