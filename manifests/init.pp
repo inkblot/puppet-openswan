@@ -26,7 +26,7 @@ class openswan (
 		$auto      = 'ignore',
 	) {
 		concat::fragment { "ipsec connection ${name}":
-			content => template('openswan/ipsec.conf-connection.erb',
+			content => template('openswan/ipsec.conf-connection.erb'),
 			target  => '/etc/ipsec.conf',
 			order   => '50',
 		}
