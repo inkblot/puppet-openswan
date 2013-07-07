@@ -1,11 +1,10 @@
 version	2.0
 config setup
-	protostack=netkey
-	interfaces=%defaultroute
+	dumpdir=/var/run/pluto/
 	nat_traversal=yes
-	force_keepalive=yes
-	keep_alive=60
 	virtual_private=<%= @virtual_private %>
-	oe=no
+	oe=off
+	protostack=netkey
 	nhelpers=0
+	interfaces=%defaultroute
 

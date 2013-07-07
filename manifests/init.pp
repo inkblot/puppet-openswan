@@ -1,6 +1,6 @@
 class openswan (
 	$server_ip       = $::ipaddress,
-	$virtual_private = '%v4:10.0.0.0/8,%v4:172.16.0.0/12,%v4192.168.0.0/24',
+	$virtual_private = '%v4:10.0.0.0/8,%v4:172.16.0.0/12,%v4192.168.0.0/16',
 ) {
 
 	package { 'openswan':
@@ -21,9 +21,11 @@ class openswan (
 	}
 
 	define connection (
-		$server_ip = $::openswan::server_ip,
-		$peer_ip   = '%any',
-		$auto      = 'ignore',
+		$server_ip                   = $::openswan::server_ip,
+		$public_ip                   = $::openswan::server_ip,
+		$peer_ip                     = '%any',
+		$auto                        = 'ignore',
+		$private_subnet_prefixlength = '24',
 	) {
 		concat::fragment { "ipsec connection ${name}":
 			content => template('openswan/ipsec.conf-connection.erb'),
