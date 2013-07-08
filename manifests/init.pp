@@ -58,4 +58,9 @@ class openswan (
 		}
 	}
 
+	service { 'ipsec':
+		ensure    => running,
+		subscribe => '/etc/ipsec.conf',
+	}
+
 }
