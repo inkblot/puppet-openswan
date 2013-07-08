@@ -60,7 +60,7 @@ class openswan (
 
 	service { 'ipsec':
 		ensure    => running,
-		subscribe => '/etc/ipsec.conf',
+		subscribe => File['/etc/ipsec.conf'],
 	}
 
 }
