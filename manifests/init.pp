@@ -48,7 +48,7 @@ class openswan (
 	}
 
 	define secret (
-		$id      = "@${::openswan::server_ip}",
+		$id      = $::openswan::server_ip,
 		$peer_ip = '%any',
 		$secret,
 	) {

@@ -1,7 +1,7 @@
 conn <%= @name %>
 	auto=<%= @auto %>
 	left=<%= @server_ip %>
-	leftid=@<%= @public_ip %>
+	leftid=<%= @public_ip %>
 <%- if @server_ip != @public_ip -%>
 	leftsubnet=<%= @server_ip %>/<%= @private_subnet_prefixlength %>
 <%- end -%>
