@@ -34,16 +34,16 @@ class openswan (
 		}
 	}
 
-	concat { '/etc/ipsec.secret':
+	concat { '/etc/ipsec.secrets':
 		owner   => 'root',
 		group   => 'root',
 		mode    => 0600,
 		require => Package['openswan'],
 	}
 
-	concat::fragment { 'ipsec.secret preamble':
+	concat::fragment { 'ipsec.secrets preamble':
 		content => "# secrets\n",
-		target  => '/etc/ipsec.secret',
+		target  => '/etc/ipsec.secrets',
 		order   => '00',
 	}
 
@@ -53,7 +53,7 @@ class openswan (
 		$secret,
 	) {
 		concat::fragment { "ipsec secret ${name}":
-			target  => '/etc/ipsec.secret',
+			target  => '/etc/ipsec.secrets',
 			content => template('openswan/ipsec.secret.erb'),
 		}
 	}
